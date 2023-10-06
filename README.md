@@ -17,98 +17,59 @@ The dependencies used in the pom.xml file for this project are :
 * Spring Starter Web: Provides essential web-related features and configurations.
 * Spring JPA: Simplifies working with relational databases using Java Persistence API (JPA).
 * Lombok: Reduces boilerplate code with annotations for getter, setter, and other common methods.
-* Validation: Enables data validation using annotations.
-* MySQL Driver: The chosen database management system for data storage.
-* javax.mail: For integrating email functionality.
-* Swagger: To generate interactive API (documentation).
+* PostgreSQL Driver: A JDBC and R2DBC driver that allows Java programs to connect to a PostgreSQL database using standard, database-independent Java code.
 ---
 ## Data Flow:
-  * **<ins>Model:</ins>**
-    
-      Represents the database entities, such as User, Admin, Song, Playlist, and AuthenticationToken for user and admin.
 
-    * User: Represents a registered user of the music streaming app.
-    * Admin: Represents an administrator with additional privileges.
-    * Song: Stores information about individual songs in the app's library.
-    * Playlist: Represents a collection of songs curated by users.
-    * AdminAuthentication: Handles authentication for administrators.
-    * UserAuthentication: Handles authentication for regular users.
-      
-  * **<ins>Service:</ins>**
-    
-      Implements the business logic and interacts with the repositories.
-    
-    * UserService: Service for user-related operations.
-    * AdminService: Service for admin-related operations.
-    * SongService: Service for song-related operations
-    * PlaylistService: Service for playlist-related operations.
-    * AdminAuthenticationService: Service for admin authentication-related operations.
-    * UserAuthenticationService: Service for user authentication-related operations.
+* The user interacts with the system through POSTMAN.
+* The user's requests are handled by the Spring MVC controllers.
+* Data is fetched and manipulated using Spring Data JPA for communication with the PostgreSQL database.
+* The database stores employee information, including details such as name, address, and age.
+* The user can perform CRUD (Create, Read, Update, Delete) operations on employee records.
+* The web application communicates with the database using Spring Data JPA.
+* Lombok is used to simplify the creation of Java classes by generating boilerplate code.
 
-  * **<ins>Repository:</ins>**
-    
-       Handles database operations,  manages the CRUD operations and provides an interface for data access.
-    
-    * UserRepository: Repository for managing user data.
-    * AdminRepository: Repository for managing admin data.
-    * SongRepository: Repository for managing song data.
-    * PlaylistRepository: Repository for managing playlist data.
-    * AdminAuthenticationRepository: Repository for managing admin authentication-related data.
-    * UserAuthenticationRepository: Repository for managing user authentication-related data.
-
-  * **<ins>Controller:</ins>**
-
-       Handles incoming HTTP requests, manages the data flow, and sends responses back to the client.
-
-     * UserController: Manages user-specific endpoints such as sign-in, sign-up, sign-out and other crud endpoints for the playlist.
-     * AdminController: Handles admin-specific endpoints like sign-in, sign-up, sign-out and other crud endpoints for the song.
-
-   * **<ins>DTOs</ins>**
-
-       DTOs (Data Transfer Objects) are used for data exchange between the front-end and back-end. The following DTOs are used:
-
-     * SignInInput: Contains fields required for user/admin sign-in.
-     * SignUpOutput: Holds necessary fields for user/admin sign-up.
-       
-   * **<ins>Password Encrypter and Email Utility</ins>**
-     
-     * PasswordEncrypter: Utilizes encryption techniques to secure user and admin passwords.
-     * EmailUtility: Facilitates the integration of email functionality for password reset or verification.
 ---
 ## Database Design:
 
-The project uses MySQL as the database management system. To design the database for the music streaming app, we need to consider the entities (tables) and their relationships. Based on the features and models mentioned in this file.
-    
-   * **<ins>Relationships:</ins>**
+In the Employee Management System using Spring Boot (MVC) project with PostgreSQL as the database, you can design the database as follows:
 
-     * Each User can have multiple Playlists.
-     * Each Playlist can have multiple Songs.
-     * Each User can have multiple Songs in their playlists, and each Song can be part of multiple Playlists.
+Entity: Employee
+* id (Primary Key, Auto-generated)
+* name (String): The name of the employee.
+* Address (String): The address of the employee.
+* age (Integer): The age of the employee.
 ---
 ## Data Structure:
 
 The project utilizes several data structures, including:
 
-* Strings: Used for storing text-based data, such as user names, email addresses, phone numbers, artist names, album names, song names and authentication tokens.
-* Integers: Used for storing numerical data, such as IDs.
-* LocalDate: Used for storing date information, including token creation dates.
-* ArrayList: To organize and manage data efficiently, such as lists of songs, and playlists.
----
-## Deployment using AWS
-
-Once we developed and tested our music streaming app locally, next we have to deploy it to a cloud platform like AWS (Amazon Web Services) to make it accessible to users worldwide. AWS provides a robust and scalable infrastructure to host web applications, making it a popular choice for deploying Spring Boot applications.
-
-**Swagger Link** : `http://3.109.202.193:8080/swagger-ui/index.html#/`
-
+* Strings: Used for storing text-based data, such as user names, and addresses.
+* Integers: Used for storing numerical data, such as IDs  and ages.
+* ArrayList: To organize and manage data efficiently, such as lists of employee details.
 ---
 ## Project Summary:
 
-The music streaming app aims to provide users with a seamless experience to explore, discover, and enjoy their favourite music. It leverages the Spring Boot framework and related dependencies for efficient web development and data management. Users can register, log in, and create personalized accounts, allowing them to access a vast library of songs, and create playlists. And deployed the project using AWS(Amazon Web Service). 
+This Employee Management System is a Spring Boot-based web application designed to manage employee records efficiently. It uses the following key components and technologies:
+
+1. Spring Boot: The core framework for building the application.
+1. Spring MVC: Handles web requests and routes them to the appropriate controller.
+1. Spring Data JPA: Provides data access and persistence capabilities, simplifying database interactions.
+1. PostgreSQL: The relational database used to store and manage employee data.
+1. Lombok: Reduces boilerplate code by generating getters, setters, constructors, and other methods for Java classes.
+
+The system allows users to:
+
+* Add new employees with details like name, address and age.
+* View a list of all employees.
+* Edit employee information.
+* Delete employee records.
+  
+This project aims to demonstrate how to build a basic Employee Management System using Spring Boot, Spring MVC, and PostgreSQL as the backend database. You can extend this system by adding additional features and functionality as needed.
 
 ---
 ## Conclusion:
-
-We are excited to present our Music Streaming App built with Spring Boot in IntelliJ. Our app brings together the power of Spring Boot and various dependencies to create a seamless and enjoyable music streaming experience. From exploring a vast library of songs to creating personalized playlists and sharing musical moments with friends, our app offers a wide range of features for music enthusiasts.
+The Employee Management System uses Spring Boot (MVC) with PostgreSQL as the database provides a foundation for managing employee records in a web-based application. This design allows you to efficiently store and retrieve employee data, including their names, email addresses, and departments.
 
 ---
 
