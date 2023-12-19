@@ -17,7 +17,7 @@ public class EmployeeController {
     @PostMapping("/add")
     public ResponseEntity<EmployeeBean> saveEmployee(@RequestBody EmployeeBean employee){
         EmployeeBean employeeSaveToDB = this.employeeService.addEmployee(employee);
-        return new ResponseEntity<EmployeeBean>(employeeSaveToDB, HttpStatus.CREATED);
+        return new ResponseEntity<>(employeeSaveToDB, HttpStatus.CREATED);
     }
 
     @GetMapping("/id/{id}")
