@@ -19,6 +19,7 @@ public class EmployeeController {
         EmployeeBean employeeSaveToDB = this.employeeService.addEmployee(employee);
         return new ResponseEntity<EmployeeBean>(employeeSaveToDB, HttpStatus.CREATED);
     }
+
     @GetMapping("/id/{id}")
     public String getEmployeeById(@PathVariable Long id){
 
@@ -39,7 +40,7 @@ public class EmployeeController {
     }
 
     @PutMapping("update/id/{id}/age/{age}")
-    public String updateEmployeeAgeById(@PathVariable Long id,@PathVariable int age){
+    public String updateEmployeeAgeById(@PathVariable  Long id,@PathVariable int age){
         return employeeService.updateEmployeeAgeById(id,age);
     }
     @PutMapping("update/id/{id}/address/{address}")
